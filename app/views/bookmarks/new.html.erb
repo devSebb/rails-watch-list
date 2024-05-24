@@ -1,7 +1,7 @@
 <div class="container w-50 mt-5">
   <%= simple_form_for([@list, @bookmark]) do |f| %>
-    <%= f.input :comment %>
     <%= f.association :movie %>
+    <%= f.input :comment %>
     <%# <%= f.input :movie, collection: Movie.all %>
     <%= f.submit "Submit", class: "btn btn-primary" %>
     <%= link_to "Back to Lists", lists_path, class: "btn btn-primary" %>
