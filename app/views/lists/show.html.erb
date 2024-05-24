@@ -1,8 +1,10 @@
-<div class="container mt-5 justify-content-between">
-  <%= cl_image_tag @list.photo.key, height: 300, width: 400, crop: :fill %>
+<div class="card-category" style="height: 30vh; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @list.photo.key, crop: :fill %>');">
   <h2><%= @list.name %></h2>
+</div>
+<div class="container mt-5 justify-content-between">
   <%= link_to "See all lists", lists_path, class: 'btn btn-primary' %>
   <%= link_to "Add a movie", new_list_bookmark_path(@list), class: 'btn btn-primary' %>
+
   <div class="container mt-5">
     <div class="row">
       <% @list.bookmarks.each do |bookmark| %>
@@ -25,3 +27,9 @@
     </div>
   </div>
 </div>
+
+<%# <%= link_to lists_path(@list), method: :destroy, data: {
+      turbo_method: "delete",
+      turbo_confirm: "Are you sure?" } do %>
+      <%# <i class="fas fa-trash-alt"></i> Delete this list
+    <% end %>
